@@ -69,6 +69,7 @@ function masukanNilaiTable(e) {
     fillname.value = ""
     exampleradios.value = ""
 }
+form.style.display = "none"
     buttonshow.addEventListener("click",()=> {
         if (form.style.display == "none")
         {
