@@ -33,9 +33,13 @@ function masukanNilaiTable(e) {
     baris.className = 'lists';
 
     const i = document.createElement('i');
-    i.className = 'fas fa-user-minus';
+    i.className = 'fas fa-minus';
     deleteButton.appendChild(i);
-    deleteButton.classList.add('button-delete');
+    deleteButton.classList.add('btn');
+    deleteButton.classList.add('btn-danger');
+    deleteButton.classList.add('text-white');
+    deleteButton.classList.add('btn-sm');
+    deleteButton.classList.add('mx-auto');
 
     baris.appendChild(dataId);
     baris.appendChild(dataName);
@@ -43,8 +47,24 @@ function masukanNilaiTable(e) {
     baris.appendChild(fakultas);
     baris.appendChild(prodi);
     baris.appendChild(deleteButton);
-
+    deleteButton.addEventListener ('click', function (event) {
+        const confirmasi = confirm("Apakah anda ingin menghapus ?")
+        const btndell = event.target;
+        const parent = btndell.parentElement;
+        if (confirmasi == true){
+            if (btndell.classList[0] == "btn")
+            {
+                parent.remove()
+            }  
+        }
+        else 
+        {
+            alert("Batal")
+        }
+        
+    })
     tbody.appendChild(baris);
-
-    
+    id.value = ""
+    fillname.value = ""
+    exampleradios.value = ""
 }
