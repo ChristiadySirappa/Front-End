@@ -6,6 +6,7 @@ const buttonadd = document.querySelector('.btn2');
 const search = document.querySelector('.search');
 const form = document.querySelector('form');
 const tbody = document.querySelector('tbody');
+const exampleformcontrolselect = [document.querySelector('#exampleformcontrolselect1'), document.querySelector('#exampleformcontrolselect2')];
 
 form.addEventListener ('submit', masukanNilaiTable);
 
@@ -68,3 +69,31 @@ function masukanNilaiTable(e) {
     fillname.value = ""
     exampleradios.value = ""
 }
+    buttonshow.addEventListener("click",()=> {
+        if (form.style.display == "none")
+        {
+            form.style.display = "block"
+            buttonshow.innerText = "sembunyikan"
+        }
+        else
+        {
+            form.style.display = "none"
+            buttonshow.innerText = "tampilkan"
+        }
+    })
+    search.addEventListener ('keyup', function() {
+        const row = tbody.querySelectorAll("tr")
+        const impostor = this.value.toUpperCase()
+        console.log(impostor)
+        row.forEach(i=>{
+            const blue = i.getElementsByTagName('td')[1];
+            if (blue.textContent.toUpperCase().includes(impostor)>0)
+            {
+                i.style.display = ""
+            }
+            else 
+            {
+                i.style.display = "none"
+            }
+        })
+    })
